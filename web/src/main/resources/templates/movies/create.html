@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Movie Creating form</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:insert="~{shared/navBar :: navbar}"></div>
+
+<div class="container">
+
+    <h3 class="pt-5">Film létrehozás</h3>
+
+    <div th:if="${success != null}">
+        <div th:if="${success}"
+             class="alert alert-success"
+             role="alert">
+            <p>Sikeres művelet végrehajtás!</p>
+            <div class="col-md-4 mt-5">
+                <div class="form-group">
+                    <label for="name">Mentett film adatai</label>
+                </div>
+                <div class="form-group">
+                    <label for="name">Azonosító</label>
+                    <input type="numeric"
+                           readonly
+                           id="saved_id"
+                           th:value="${movie != null ? movie.id : 0}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="name">Név</label>
+                    <input type="text"
+                           readonly
+                           id="saved_name"
+                           th:value="${movie != null ? movie.name : 'Nincs adat'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="releaseYear">Megjelenés</label>
+                    <input type="text"
+                           readonly
+                           id="saved_releaseYear"
+                           th:value="${movie != null ? movie.releaseYear : 'Nincs adat'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_time">Hossz</label>
+                    <input type="text"
+                           readonly
+                           id="saved_time"
+                           th:value="${movie != null ? movie.time : 'Nincs adat'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_movieType">Típus</label>
+                    <input type="text"
+                           readonly
+                           id="saved_movieType"
+                           th:value="${movie != null ? movie.movieType.value : 'Nincs adat'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="description">Leírás</label>
+                    <textarea readonly
+                              id="saved_description"
+                              th:text="${movie != null ? movie.description : 'Nincs adat'}"
+                              class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        <div th:unless="${success}"
+             class="alert alert-danger"
+             role="alert">
+            <p>Sikertelen művelet végrehajtás!</p>
+            <p th:value="${message}"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/moviess/create}">
+                <div class="form-group">
+                    <label for="name">Film készítő form</label>
+                </div>
+                <div class="form-group">
+                    <label for="name">Név</label>
+                    <input type="text"
+                           id="name"
+                           th:name="name"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="releaseYear">Megjelenés éve</label>
+                    <input type="number"
+                           id="releaseYear"
+                           th:name="releaseYear"
+                           min="1999"
+                           step="1"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="size">Film hossz</label>
+                    <input type="number"
+                           id="size"
+                           th:name="size"
+                           min="5"
+                           step="10"
+                           value="30"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="movieType">Film típusa</label>
+                    <select id="movieType"
+                            name="movieType"
+                            class="form-control form-select">
+                        <option th:value="${T(hu.nye.progkor.cinema.model.MovieType).MOVIE_2D}"
+                                th:text="2d"></option>
+                        <option th:value="${T(hu.nye.progkor.cinema.model.MovieType).MOVIE_3D}"
+                                th:text="3d"></option>
+                        <option th:value="${T(hu.nye.progkor.cinema.model.MovieType).BOTH}"
+                                th:text="Mindkettő"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Leírás</label>
+                    <textarea id="description"
+                              th:name="description"
+                              class="form-control"></textarea>
+                </div>
+                <button class="btn btn-primary pt-2"
+                        type="submit">Termék készítés
+                </button>
+                <a th:href="@{/movies/list.html}"
+                   class="btn btn-secondary pt-2"
+                   type="submit">Mégsem</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

@@ -10,7 +10,7 @@ on:
 env:
   DOCKER_REGISTRY: ghcr.io
   DOCKER_IMAGE_NAME: ${{ github.repository }}
-  HEROKU_APP_NAME: 'nye-progkor-warehouse'
+  HEROKU_APP_NAME: 'nye-progkor-cinema'
 
 jobs:
   build:
@@ -31,14 +31,14 @@ jobs:
     - name: Build and publish with Maven
       run: |
         # Versioning setup
-        version_prefix=`mvn help:evaluate -Dexpression=project.version --quiet -DforceStdout --file cinema/pom.xml | awk -F. '{print $1"."$2}'`
+        version_prefix=`mvn help:evaluate -Dexpression=project.version --quiet -DforceStdout --file pom.xml | awk -F. '{print $1"."$2}'`
         version="$version_prefix.${{github.run_number}}"
         echo "Setting artifact version to $version"
         # Push version to env
         echo "ARTIFACT_VERSION=$version" >> $GITHUB_ENV
         # Overwrite local artifact version
-        mvn -B versions:set -DnewVersion="$version" --file cinema/pom.xml
-        mvn -B deploy --file cinema/pom.xml
-        cp "cinema/web/target/web-${version}.jar" "cinema/web/target/warehouse.jar"
+        mvn -B versions:set -DnewVersion="$version" --file pom.xml
+        mvn -B deploy --file pom.xml
+        cp "web/target/web-${version}.jar" "web/target/warehouse.jar"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

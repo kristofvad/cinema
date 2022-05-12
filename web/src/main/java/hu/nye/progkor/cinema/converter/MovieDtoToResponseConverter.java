@@ -20,7 +20,7 @@ public class MovieDtoToResponseConverter implements Converter<MovieDTO, MovieRes
                 source.releaseYear(),
                 source.time(),
                 source.movieType(),
-                source.description()
+                source.description() //frvrr
         );
     }
 }

@@ -127,17 +127,7 @@
                 <version>2.3.2</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.example</groupId>
-                <artifactId>data</artifactId>
-                <version>0.1.0</version>
-            </dependency>
 
-            <dependency>
-                <groupId>org.example</groupId>
-                <artifactId>cinema</artifactId>
-                <version>0.1.0</version>
-            </dependency>
 
         </dependencies>
     </dependencyManagement>

@@ -8,6 +8,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * Javadoc comment.
+ */
 @Builder
 @EqualsAndHashCode
 @Getter
@@ -21,6 +24,9 @@ public class MovieRequest {
     private final MovieType movieType;
     private final String description;
 
+    /**
+     * Javadoc comment.
+     */
     @JsonPOJOBuilder(withPrefix = "")
     public static class MovieRequestBuilder {
 

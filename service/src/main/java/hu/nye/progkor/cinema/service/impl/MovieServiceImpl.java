@@ -1,5 +1,8 @@
 package hu.nye.progkor.cinema.service.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import hu.nye.progkor.cinema.model.Movie;
 import hu.nye.progkor.cinema.model.dto.MovieDTO;
 import hu.nye.progkor.cinema.model.exception.NotFoundException;
@@ -10,8 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+/**
+ * MovieServiceImpl.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j

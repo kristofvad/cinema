@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+/**
+ * Javadoc comment.
+ */
 @Component
 @Slf4j
 public class MovieRequestToDtoConverter implements Converter<MovieRequest, MovieDTO> {

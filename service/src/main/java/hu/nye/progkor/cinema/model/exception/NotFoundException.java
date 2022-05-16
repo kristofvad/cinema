@@ -2,6 +2,9 @@ package hu.nye.progkor.cinema.model.exception;
 
 import java.io.Serial;
 
+/**
+ * Exception for not foundable movies.
+ */
 public class NotFoundException extends RuntimeException {
 
     @Serial

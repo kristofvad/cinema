@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.0.1">
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\CinemaApplication.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\config\WebConfig.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\controller\MovieController.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\controller\MovieRestController.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\converter\MovieDtoToResponseConverter.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\converter\MovieRequestToDtoConverter.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\model\request\MovieRequest.java">
+</file>
+<file name="C:\Users\User\IdeaProjects\cinema\web\src\main\java\hu\nye\progkor\cinema\model\response\MovieResponse.java">
+</file>
+</checkstyle>

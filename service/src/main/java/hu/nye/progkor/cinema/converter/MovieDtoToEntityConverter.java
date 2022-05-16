@@ -1,12 +1,16 @@
 package hu.nye.progkor.cinema.converter;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.convert.converter.Converter;
 import hu.nye.progkor.cinema.model.Movie;
 import hu.nye.progkor.cinema.model.dto.MovieDTO;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * MovieDtoToEntityConverter.
+ */
 @Component
 @Slf4j
 public class MovieDtoToEntityConverter implements Converter<MovieDTO, Movie> {

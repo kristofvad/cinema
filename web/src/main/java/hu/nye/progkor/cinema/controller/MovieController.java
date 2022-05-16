@@ -1,7 +1,9 @@
 package hu.nye.progkor.cinema.controller;
 
-import hu.nye.progkor.cinema.model.dto.MovieDTO;
+import java.util.List;
+import javax.validation.ConstraintViolationException;
 
+import hu.nye.progkor.cinema.model.dto.MovieDTO;
 import hu.nye.progkor.cinema.model.exception.NotFoundException;
 import hu.nye.progkor.cinema.model.request.MovieRequest;
 import hu.nye.progkor.cinema.model.response.MovieResponse;
@@ -13,12 +15,16 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.ConstraintViolationException;
-import java.util.List;
-
+/**
+ * Javadoc comment.
+ */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/movies")
@@ -34,12 +40,18 @@ public class MovieController {
     private final Converter<MovieDTO, MovieResponse> movieDtoToResponseConverter;
     private final Converter<MovieRequest, MovieDTO> movieRequestMovieDTOConverter;
 
+    /**
+     * Javadoc comment.
+     */
     @GetMapping(path = "/create.html")
     public String movieCreateForm(final Model model) {
         log.info("Visit Movie create form page.");
         return "movies/create";
     }
 
+    /**
+     * Javadoc comment.
+     */
     @PostMapping(path = "/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String createMovie(final Model model,
                                 final MovieRequest movieRequest) {
@@ -54,6 +66,9 @@ public class MovieController {
         return "movies/create.html";
     }
 
+    /**
+     * Javadoc comment.
+     */
     @GetMapping(path = "/list.html")
     public String getmovies(final Model model) {
         log.info("Retrieve all Movies.");
@@ -64,6 +79,9 @@ public class MovieController {
         return "movies/list";
     }
 
+    /**
+     * Javadoc comment.
+     */
     @GetMapping(path = "/{id}/edit.html")
     public String movieEditForm(final RedirectAttributes redirectAttributes, final Model model, final @PathVariable("id") Long id) {
         log.info("Load Update form for Movie with ID:{}.", id);
@@ -78,6 +96,9 @@ public class MovieController {
         }
     }
 
+    /**
+     * Javadoc comment.
+     */
     @PostMapping(value = "/edit", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String editMovie(final RedirectAttributes redirectAttributes,
                               final Model model,
@@ -99,6 +120,9 @@ public class MovieController {
         }
     }
 
+    /**
+     * Javadoc comment.
+     */
     @GetMapping(path = "/remove/{id}")
     public String removeMovie(final RedirectAttributes redirectAttributes, final @PathVariable("id") Long id) {
         log.info("Remove a Movie with ID: {}.", id);

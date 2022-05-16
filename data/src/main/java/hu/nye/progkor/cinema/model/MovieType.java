@@ -1,5 +1,8 @@
 package hu.nye.progkor.cinema.model;
 
+/**
+ * MovieType creation.
+ */
 public enum MovieType {
 
     MOVIE_3D("2d-s film"),

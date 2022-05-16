@@ -1,8 +1,12 @@
 package hu.nye.progkor.cinema.service;
 
-import hu.nye.progkor.cinema.model.dto.MovieDTO;
 import java.util.List;
 
+import hu.nye.progkor.cinema.model.dto.MovieDTO;
+
+/**
+ * MovieService interface.
+ */
 public interface MovieService {
 
     List<MovieDTO> getAllMovies();

@@ -10,8 +10,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>kristof.vad</groupId>
-    <artifactId>cinema</artifactId>
+    <groupId>krstf.vd</groupId>
+    <artifactId>mozi</artifactId>
     <version>0.1.0</version>
 
     <packaging>pom</packaging>
@@ -195,7 +195,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/kristofvad/cinema</url>
+            <url>https://maven.pkg.github.com/kristofvad/mozi</url>
         </repository>
     </distributionManagement>
 

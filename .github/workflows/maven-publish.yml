@@ -12,6 +12,7 @@ env:
   DOCKER_IMAGE_NAME: ${{ github.repository }}
   HEROKU_APP_NAME: 'nye-progkor-cinema'
 
+
 jobs:
   build:
 

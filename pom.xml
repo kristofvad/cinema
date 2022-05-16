@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.example</groupId>
+    <groupId>kristof.vad</groupId>
     <artifactId>cinema</artifactId>
     <version>0.1.0</version>
 
@@ -126,11 +126,70 @@
                 <artifactId>jaxb-runtime</artifactId>
                 <version>2.3.2</version>
             </dependency>
-
-
-
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- attached to Maven test phase -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-check</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>hu\nye\progkor\cinema\model\**</exclude>
+                        <exclude>hu\nye\progkor\cinema\controller\**</exclude>
+                        <exclude>hu\nye\progkor\cinema\WarehouseApplication.class</exclude>
+                        <exclude>hu\nye\progkor\cinema\populator\**</exclude>
+                        <exclude>hu\nye\progkor\cinema\repository\**</exclude>
+                        <exclude>hu\nye\progkor\cinema\converter\**</exclude>
+                        <exclude>hu\nye\progkor\cinema\config\**</exclude>
+                        <exclude>*Test</exclude>
+                    </excludes>
+                    <rules>
+                        <rule>
+                            <element>${coverage.type}</element>
+                            <limits>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>${coverage.lineLimit}</minimum>
+                                </limit>
+                                <limit>
+                                    <counter>BRANCH</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>${coverage.branchLimit}</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <distributionManagement>
         <repository>
